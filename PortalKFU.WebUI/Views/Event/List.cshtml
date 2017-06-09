@@ -1,0 +1,17 @@
+﻿@using PortalKFU.WebUI.Models
+@using PortalKFU.WebUI.HtmlHelpers
+@model EventsListViewModel
+
+@{
+    ViewBag.Title = "Портал КФУ";
+}
+
+@foreach (var p in @Model.Events)
+{
+    @Html.Partial("EventSummary", p)
+}
+
+<div class="btn-group pull-right">
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List",
+        new { page = x, category = Model.CurrentCategory }))
+</div>

@@ -1,0 +1,72 @@
+﻿@model PortalKFU.WebUI.Models.LoginViewModel
+
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>Регистрация</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div>
+        <h4>Регистрация пользователя</h4>
+        <hr />
+        @Html.ValidationSummary(false)
+
+        <div class="form-group">
+            <label>Имя пользователя:</label>
+            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Пароль:</label>
+            @Html.TextBoxFor(m => m.Password, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Подтвердите пароль:</label>
+            @Html.TextBoxFor(m => m.PasswordConfirm, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Email:</label>
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        </div>
+     
+        <div>
+            <div>
+                <input type="submit" value="Зарегистрировать" />
+            </div>
+        </div>
+    </div>
+}
+
+
+@*@model PortalKFU.WebUI.Models.LoginViewModel
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="panel">
+    <div class="panel-heading">
+        <h3>Вход в систему</h3>
+    </div>
+    <div class="panel-body">
+        <p class="lead">Пожалуйста, войдите в систему, чтобы получить доступ к админ. панели:</p>
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary()
+            <div class="form-group">
+                <label>Имя пользователя:</label>
+                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+            </div>
+            @*<div class="form-group">
+                <label>Пароль:</label>
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+            </div>*@
+            @*<input type="submit" value="Войти" class="btn btn-primary" />
+        }
+    </div>
+</div>*@
